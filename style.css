@@ -26,6 +26,30 @@ body{
     height: 100px;
     position: relative;
     transform-style: preserve-3d;
+    transition: 2.5s ease-in-out;
+    transition-delay: calc(0.25s * var(--j));
+}
+
+.container .text::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #373737;
+    transform-origin: left;
+    transform: rotateY(90deg) translateX(-50px);
+}
+
+.container:hover .text{
+    transform: rotateX(-360deg);
+}
+
+.container:hover .text:last-child{
+    transform: rotateX(630deg);
+}
+
+.container .text:last-child:before{
+    background:#29ab3c;
 }
 
 .container .text span{
@@ -41,4 +65,10 @@ body{
     font-size: 4em;
     color: #FFFFFF;
     transform-style: preserve-3d;
+    transform: rotateX(calc(90deg * var(--i))) translateZ(50px);
+}
+
+.container .text:last-child span{
+    background: linear-gradient(#29c040, #32ed4e);
+    color: #333;
 }
